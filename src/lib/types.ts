@@ -60,11 +60,12 @@ export interface FlexProps extends HTMLAttributes<'div'> {
     | 'stretch'
     | 'baseline';
   readonly justify?:
-    | 'flex-start'
-    | 'flex-end'
+    | 'start'
+    | 'end'
     | 'center'
-    | 'space-between'
-    | 'space-around'
-    | 'space-evenly';
+    | 'between'
+    | 'around'
+    | 'stretch'
+    | 'evenly';
   readonly flex?: string | number | boolean;
 }

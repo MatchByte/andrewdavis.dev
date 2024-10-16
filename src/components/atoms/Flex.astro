@@ -1,0 +1,24 @@
+---
+// props passed to this component
+const {
+  direction,
+  align,
+  gap,
+  flex,
+  justify,
+  class: className,
+  wrap = 'nowrap',
+  ...rest
+} = Astro.props;
+
+const mobileGap = typeof gap === 'number' ? gap : (gap?.mobile ?? 0);
+const desktopGap = typeof gap === 'number' ? gap : (gap?.desktop ?? 0);
+
+const flexPropRule = flex ? 1 : !flex ? 0 : flex;
+
+const styleVariants = {};
+---
+
+<div class:list={['flex', className]} {...rest}>
+  <slot /> r
+</div>
