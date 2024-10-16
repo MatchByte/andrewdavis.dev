@@ -1,0 +1,21 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'div'> {
+  readonly class?: string;
+  readonly x?: number;
+  readonly y?: number;
+  readonly flex?: string | number | boolean;
+}
+
+const { x, y, class: className, flex, ...rest } = Astro.props;
+
+const styles = {
+  width: typeof x === 'undefined' ? '100%' : `${x}px`,
+  height: typeof y === 'undefined' ? '100%' : `${y}px`,
+  backgroundColor: '#000',
+  flex: flex ? '1' : !flex ? 0 : flex,
+};
+---
+
+<div style={styles} class:list={[className]} {...rest}></div>
