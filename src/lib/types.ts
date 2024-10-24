@@ -51,7 +51,7 @@ export interface Project {
 }
 
 export interface FlexProps extends HTMLAttributes<'div'> {
-  readonly gap: number | {mobile: number; desktop: number};
+  readonly gap?: number | {mobile: number; desktop: number};
   readonly wrap?: boolean;
   readonly align?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
   readonly justify?:

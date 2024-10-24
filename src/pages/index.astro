@@ -1,7 +1,12 @@
 ---
 import Flex from '../components/atoms/Flex.astro';
+import Spacer from '../components/atoms/Spacer.astro';
+import AboutSection from '../components/home/AboutSection.astro';
 import Header from '../components/layout/Header.astro';
 import HomeLayout from '../layouts/HomeLayout.astro';
 ---
 
-<HomeLayout />
+<HomeLayout title="Andrew Davis">
+  <Spacer y={{mobile: 20, desktop: 32}} />
+  <AboutSection />
+</HomeLayout>

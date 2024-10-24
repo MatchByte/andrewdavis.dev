@@ -17,4 +17,23 @@ const widthMobile = typeof x === 'number' ? `${x}px` : x?.mobile ? `${x.mobile}p
 const heightDesktop = typeof y === 'number' ? `${y}px` : y?.desktop ? `${y.desktop}` : 0;
 
 const heightMobile = typeof y === 'number' ? `${y}px` : y?.mobile ? `${y.mobile}px` : 0;
+
+const flexValue = flex === true ? 1 : flex === false ? 0 : flex;
 ---
+
+<div class:list={['spacer', className]} {...rest}>&nbsp;</div>
+
+<style define:vars={{widthDesktop, widthMobile, heightDesktop, heightMobile, flexValue}}>
+  .spacer {
+    width: var(--widthDesktop);
+    height: var(--heightDesktop);
+    flex: var(--flexValue);
+  }
+
+  @media (max-width: 760px) {
+    .spacer {
+      width: var(--widthMobile);
+      height: var(--heightMobile);
+    }
+  }
+</style>

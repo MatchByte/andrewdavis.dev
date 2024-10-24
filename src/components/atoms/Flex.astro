@@ -8,15 +8,14 @@ interface Props extends FlexProps {
   readonly class?: string;
 }
 
-// props passed to this component
 const {
+  gap,
   direction,
   align,
-  gap,
-  flex,
   justify,
-  class: className,
   wrap = 'nowrap',
+  flex,
+  class: className,
   ...rest
 } = Astro.props;
 

@@ -4,4 +4,47 @@ import {Urls} from '../../lib/urls';
 interface Props {
   readonly title: string;
 }
+
+console.log(Astro.site);
+const {title} = Astro.props;
+
+// const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Title. -->
+  <title>{title}</title>
+
+  <!-- Primary meta tags. -->
+  <meta name="title" content="Andrew Davis" />
+  <meta name="description" content="Andrew Davis' Online Plot" />
+  <meta name="author" content="Andrew Davis" />
+  <!-- TODO: Convert this hard-coded hex value (`background`) into a variable. -->
+  <meta name="theme-color" content="#ffefe1" />
+
+  <!-- Icons. -->
+  <link href="/favicon.ico" rel="icon" sizes="32x32" />
+  <link href="/icon.svg" rel="icon" type="image/svg+xml" />
+  <link href="/apple-touch-icon-180.png" rel="apple-touch-icon" />
+
+  <!-- RSS feed. -->
+  <link rel="alternate" href={Urls.forRss()} type="application/rss+xml" title="Andrew Davis" />
+
+  <!-- Manifest. -->
+  <link rel="manifest" href="/manifest.json" />
+
+  <!-- Sitemap. -->
+  <link rel="sitemap" href="/sitemap-index.xml" />
+
+  <!-- Canonical URL. -->
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Astro-specific meta tag which adds build metadata. -->
+  <meta name="generator" content={Astro.generator} />
+
+  <slot />
+</head>
