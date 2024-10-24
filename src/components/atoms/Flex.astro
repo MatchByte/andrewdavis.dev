@@ -1,5 +1,5 @@
 ---
-import type { FlexProps } from '../../lib/types';
+import type {FlexProps} from '../../lib/types';
 
 interface Props extends FlexProps {
   readonly direction: 'row' | 'column';
@@ -23,31 +23,21 @@ const {
 const mobileGap = typeof gap === 'number' ? gap : (gap?.mobile ?? 0);
 const desktopGap = typeof gap === 'number' ? gap : (gap?.desktop ?? 0);
 
-const flexPropRule = flex ? 1 : !flex ? 0 : flex;
+const flexValue = flex === true ? 1 : flex === false ? 0 : flex;
 ---
 
 <div class:list={['flex-wrapper', className]} {...rest}>
   <slot />
 </div>
 
-<style
-  define:vars={{
-    mobileGap,
-    desktopGap,
-    flexPropRule,
-    align,
-    justify,
-    direction,
-    wrap,
-  }}
->
+<style define:vars={{mobileGap, desktopGap, direction, wrap, align, justify, flexValue}}>
   .flex-wrapper {
     display: flex;
     flex-direction: var(--direction);
     flex-wrap: var(--wrap);
     align-items: var(--align);
     justify-content: var(--justify);
-    flex: var(--flexPropRule);
+    flex: var(--flexValue);
     gap: calc(var(--desktopGap) * 1px);
   }
 

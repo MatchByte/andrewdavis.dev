@@ -1,0 +1,25 @@
+---
+import {Urls} from '../../lib/urls';
+import Divider from '../atoms/Divider.astro';
+import FlexRow from '../atoms/FlexRow.astro';
+import Link from '../atoms/Link.astro';
+import Text from '../atoms/Text.astro';
+---
+
+<header>
+  <FlexRow class="header" gap={{mobile: 16, desktop: 40}}>
+    <Link href={Urls.forHome()}>
+      <FlexRow gap={16}>
+        <Text as="h2">Andrew Davis</Text>
+      </FlexRow>
+    </Link>
+    <Divider y={1} flex />
+  </FlexRow>
+</header>
+
+<script>
+  console.log('hello from the client');
+  let buttons = document
+    .querySelectorAll('a')
+    .forEach((button) => button.addEventListener('click', () => console.log('click')));
+</script>

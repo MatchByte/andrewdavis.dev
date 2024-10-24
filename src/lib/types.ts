@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'astro/types';
+import type {HTMLAttributes} from 'astro/types';
 
 export enum SocialLinkId {
   GitHub = 'GitHub',
@@ -51,21 +51,16 @@ export interface Project {
 }
 
 export interface FlexProps extends HTMLAttributes<'div'> {
-  readonly gap: number | { mobile: number; desktop: number };
+  readonly gap: number | {mobile: number; desktop: number};
   readonly wrap?: boolean;
-  readonly align?:
+  readonly align?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
+  readonly justify?:
     | 'flex-start'
     | 'flex-end'
     | 'center'
-    | 'stretch'
-    | 'baseline';
-  readonly justify?:
-    | 'start'
-    | 'end'
-    | 'center'
     | 'between'
-    | 'around'
-    | 'stretch'
-    | 'evenly';
+    | 'space-around'
+    | 'space-between'
+    | 'space-evenly';
   readonly flex?: string | number | boolean;
 }

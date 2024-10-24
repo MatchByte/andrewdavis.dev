@@ -1,24 +1,20 @@
 ---
-import type { HTMLAttributes } from 'astro/types';
+import type {HTMLAttributes} from 'astro/types';
 
 interface Props extends HTMLAttributes<'span'> {
   readonly class?: string;
-  readonly x?: number | { readonly mobile?: number; readonly desktop?: number };
-  readonly y?: number | { readonly mobile?: number; readonly desktop?: number };
+  readonly x?: number | {readonly mobile?: number; readonly desktop?: number};
+  readonly y?: number | {readonly mobile?: number; readonly desktop?: number};
   readonly flex?: number | string | boolean;
 }
 
-const { x, y, flex, class: className, ...rest } = Astro.props;
+const {x, y, flex, class: className, ...rest} = Astro.props;
 
-const widthDesktop =
-  typeof x === 'number' ? `${x}px` : x?.desktop ? `${x.desktop}px` : 0;
+const widthDesktop = typeof x === 'number' ? `${x}px` : x?.desktop ? `${x.desktop}px` : 0;
 
-const widthMobile =
-  typeof x === 'number' ? `${x}px` : x?.mobile ? `${x.mobile}px` : 0;
+const widthMobile = typeof x === 'number' ? `${x}px` : x?.mobile ? `${x.mobile}px` : 0;
 
-const heightDesktop =
-  typeof y === 'number' ? `${y}px` : y?.desktop ? `${y.desktop}` : 0;
+const heightDesktop = typeof y === 'number' ? `${y}px` : y?.desktop ? `${y.desktop}` : 0;
 
-const heightMobile =
-  typeof y === 'number' ? `${y}px` : y?.mobile ? `${y.mobile}px` : 0;
+const heightMobile = typeof y === 'number' ? `${y}px` : y?.mobile ? `${y.mobile}px` : 0;
 ---
