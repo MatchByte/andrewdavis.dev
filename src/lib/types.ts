@@ -4,7 +4,7 @@ export enum SocialLinkId {
   GitHub = 'GitHub',
   Email = 'EMAIL',
   LinkedIn = 'LINKED_IN',
-  Twitter = 'TWITTER',
+
 }
 
 export interface SocialLink {
