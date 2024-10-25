@@ -1,0 +1,14 @@
+---
+import { SocialLinkId } from "../../lib/types";
+import Link from '../atoms/Link.astro'
+import Text from "./Text.astro";
+
+interface Props {
+  readonly class?: string;
+  readonly type: SocialLinkId;
+}
+
+const {type, class:className} = Astro.props;
+
+---
+
