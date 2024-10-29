@@ -1,2 +1,30 @@
 ---
+import {PROJECT_LIST} from '../../lib/projects';
+import type {ProjectId} from '../../lib/types';
+import ListItem from '../atoms/ListItem.astro';
+import Text from '../atoms/Text.astro';
+
+interface Props {
+  readonly projectId: ProjectId;
+}
+
+const {projectId} = Astro.props;
+
+const {name, description, url} = PROJECT_LIST[projectId];
 ---
+
+<ListItem url={url}>
+  <Text class="project-name">{name}</Text>
+  <Text class="project-description">{description}</Text>
+</ListItem>
+
+<style>
+  .project-name {
+    width: 240px;
+  }
+  .project-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+  }
+</style>

@@ -2,4 +2,13 @@
 import { ProjectId } from "../../lib/types";
 import FlexColumn from "../atoms/FlexColumn.astro";
 import Text from "../atoms/Text.astro";
+import ProjectListItem from "./ProjectListItem.astro";
 ---
+
+
+<FlexColumn gap={12}>
+  <Text as="h2" monospace>Projects I'm working on</Text>
+  <ProjectListItem projectId={ProjectId.ProjectOne} />
+</FlexColumn>
+
+
