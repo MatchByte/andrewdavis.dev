@@ -1,0 +1,18 @@
+---
+import {Image} from 'astro:assets';
+
+import {SOCIAL_LINKS} from '../../lib/social';
+import type {SocialLinkId} from '../../lib/types';
+
+interface Props {
+  readonly class?: string;
+  readonly type: SocialLinkId;
+}
+
+const {type, class: className} = Astro.props;
+const {url, image, alt} = SOCIAL_LINKS[type];
+---
+
+<a href={url} class:list={['social-icon', className]} title={alt}>
+  <Image src={image} alt={alt} />
+</a>

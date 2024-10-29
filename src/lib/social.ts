@@ -1,6 +1,6 @@
-import emailIcon from '../images/home/email.svg';
-import githubIcon from '../images/home/github.svg';
-import linkedinIcon from '../images/home/linkedin.svg';
+import emailIcon from '../images/home/social/email.svg';
+import githubIcon from '../images/home/social/github.svg';
+import linkedinIcon from '../images/home/social/linkedin.svg';
 import {SocialLinkId, type SocialLink} from './types';
 
 export const SOCIAL_LINKS: Record<SocialLinkId, SocialLink> = {
