@@ -26,7 +26,7 @@ export interface WorkEntry {
   readonly startMonth: string;
   readonly endMonth: string | null;
   readonly endYear: string | null;
-  readonly image: ImageMetadata;
+  readonly image?: ImageMetadata;
   readonly alt: string;
   readonly url?: string;
 }
@@ -44,7 +44,7 @@ export interface Project {
   readonly description: string;
   readonly url: string;
   // preview of project LP
-  readonly screenshot: ImageMetadata;
+  readonly screenshot?: ImageMetadata;
   // avatar theme for project
   readonly avatar?: ImageMetadata;
   readonly alt: string;
