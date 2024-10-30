@@ -1,0 +1,97 @@
+---
+import type {CollectionEntry} from 'astro:content';
+
+import Spacer from '../components/atoms/Spacer.astro';
+import Text from '../components/atoms/Text.astro';
+import Footer from '../components/layout/Footer.astro';
+import Header from '../components/layout/Header.astro';
+
+import '../styles/style.css';
+
+import DoubleDivider from '../components/atoms/DoubleDivider.astro';
+import BaseHead from '../components/layout/BaseHead.astro';
+import {LONG_MONTH_DATE_FORMATTER} from '../lib/datetime';
+
+interface Props {
+  readonly frontmatter: CollectionEntry<'posts'>['data'];
+}
+
+const {frontmatter} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <BaseHead title={`${frontmatter.title} | Andrew Davis`} />
+  <body>
+    <Header />
+    <main>
+      <Spacer y={32} />
+      <Text as="h1" bold>{frontmatter.title}</Text>
+      <Spacer y={4} />
+
+      <Text class="blog-post-metadata" as="h3" light>
+        <span>{LONG_MONTH_DATE_FORMATTER.format(new Date(frontmatter.publishData))}</span>
+        <span>{`//`}</span>
+        <span>{`${frontmatter.readingTimemins} min read`}</span>
+      </Text>
+
+      <Spacer y={32} />
+
+      <DoubleDivider />
+
+      <Spacer y={12} />
+
+      <div class="blog-post-content">
+        <slot />
+      </div>
+      <!-- newsletter signup will be here -->
+      <Spacer y={40} />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  .blog-post-metadata {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .blog-post-content p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .blog-post-content h2 + p,
+  .blog-post-content h3 + p {
+    margin-top: 0.5rem;
+  }
+
+  .blog-post-content li {
+    font-size: 1.125rem;
+    line-height: 1.875rem;
+  }
+
+  .blog-post-content h3 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  pre {
+    padding: 12px;
+    margin-left: -12px;
+    margin-right: -12px;
+    border-radius: 4px;
+    line-height: 1.5rem;
+  }
+
+  a {
+    color: var(--accent);
+  }
+
+  a:hover {
+    color: var(--accent-dark);
+  }
+</style>
