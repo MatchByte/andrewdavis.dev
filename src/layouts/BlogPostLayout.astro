@@ -30,7 +30,7 @@ const {frontmatter} = Astro.props;
       <Spacer y={4} />
 
       <Text class="blog-post-metadata" as="h3" light>
-        <span>{LONG_MONTH_DATE_FORMATTER.format(new Date(frontmatter.publishData))}</span>
+        <span>{LONG_MONTH_DATE_FORMATTER.format(new Date(frontmatter.publishDate))}</span>
         <span>{`//`}</span>
         <span>{`${frontmatter.readingTimeMins} min read`}</span>
       </Text>
