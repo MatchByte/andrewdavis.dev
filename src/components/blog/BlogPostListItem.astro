@@ -13,14 +13,15 @@ const {post} = Astro.props;
 
 const {publishDate, title} = post.data;
 
-const dateFormatted = SHORT_MONTH_DATE_FORMATTER.format(publishDate);
+const formattedDate = SHORT_MONTH_DATE_FORMATTER.format(publishDate);
 
-const postUrl = `/posts/${post.slug}`;
+
+const postUrl = `/posts/${post.slug}/`;
 ---
 
 <ListItem url={postUrl} gap={{mobile: 0, desktop: 24}}>
   <Text flex truncate class="blog-post-title">{title}</Text>
-  <Text as="h5" class="blog-post-date">{dateFormatted}</Text>
+  <Text as="h5" class="blog-post-date">{formattedDate}</Text>
 </ListItem>
 
 <style>

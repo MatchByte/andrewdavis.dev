@@ -2,10 +2,9 @@ import {getCollection, type CollectionEntry} from 'astro:content';
 
 export async function getPosts(): Promise<CollectionEntry<'posts'>[]> {
   const postsCollection = await getCollection('posts');
-  console.log(postsCollection);
-  // prune draft posts from production builds
-  if (!import.meta.env.PROD) {
-    // return postsCollection.filter(({data}: CollectionEntry<'posts'>) => !data.isDraft);
+  if (import.meta.env.PROD) {
+    // Draft posts get filtered out in production.
+    return postsCollection.filter(({data}: CollectionEntry<'posts'>) => !data.isDraft);
   }
   return postsCollection;
 }
