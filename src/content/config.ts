@@ -1,7 +1,6 @@
 import {defineCollection, z} from 'astro:content';
 
-// define the collection and its shape
-
+// Define blog collection schema.
 const blogCollection = defineCollection({
   type: 'content',
   schema: () =>
@@ -13,6 +12,8 @@ const blogCollection = defineCollection({
       readingTimeMins: z.number().min(1),
     }),
 });
+
+// Register collections. Keys should match collection directory names in "src/content".
 export const collections = {
   posts: blogCollection,
 };
