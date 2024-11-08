@@ -14,7 +14,7 @@ const styles = {
   width: typeof x === 'undefined' ? '100%' : `${x}px`,
   height: typeof y === 'undefined' ? '100%' : `${y}px`,
   backgroundColor: '#000',
-  flex: flex ? '1' : !flex ? 0 : flex,
+  flex: flex === true  ? '1' : flex === false ? '0' : flex,
 };
 ---
 
