@@ -14,7 +14,7 @@ export const SOCIAL_LINKS: Record<SocialLinkId, SocialLink> = {
   [SocialLinkId.LinkedIn]: {
     name: 'LinkedIn',
     id: SocialLinkId.LinkedIn,
-    url: '',
+    url: 'https://www.linkedin.com/in/andrew-t-davis/',
     alt: 'View my LinkedIn',
     image: linkedinIcon,
   },
