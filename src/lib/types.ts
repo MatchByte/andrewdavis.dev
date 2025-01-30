@@ -1,11 +1,12 @@
-import type {HTMLAttributes} from 'astro/types';
+import type { HTMLAttributes } from "astro/types";
 
 export enum SocialLinkId {
-  GitHub = 'GitHub',
   Email = 'EMAIL',
+  GitHub = 'GIT_HUB',
   LinkedIn = 'LINKED_IN',
-
+  Twitter = 'TWITTER',
 }
+
 
 export interface SocialLink {
   readonly id: SocialLinkId;
@@ -16,7 +17,7 @@ export interface SocialLink {
 }
 
 export enum WorkEntryId {
-  DMWDirect = 'DMW_DIRECT',
+  DMWDirect = "DMW_DIRECT",
 }
 
 export interface WorkEntry {
@@ -32,10 +33,10 @@ export interface WorkEntry {
 }
 
 export enum ProjectId {
-  ProjectOne = 'PROJECT_ONE',
-  ProjectTwo = 'PROJECT_TWO',
-  ProjectThree = 'PROJECT_THREE',
-  ProjectFour = 'PROJECT_FOUR',
+  ProjectOne = "PROJECT_ONE",
+  ProjectTwo = "PROJECT_TWO",
+  ProjectThree = "PROJECT_THREE",
+  ProjectFour = "PROJECT_FOUR",
 }
 
 export interface Project {
@@ -50,17 +51,22 @@ export interface Project {
   readonly alt: string;
 }
 
-export interface FlexProps extends HTMLAttributes<'div'> {
-  readonly gap?: number | {mobile: number; desktop: number};
+export interface FlexProps extends HTMLAttributes<"div"> {
+  readonly gap?: number | { mobile: number; desktop: number };
   readonly wrap?: boolean;
-  readonly align?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
+  readonly align?:
+    | "flex-start"
+    | "flex-end"
+    | "center"
+    | "stretch"
+    | "baseline";
   readonly justify?:
-    | 'flex-start'
-    | 'flex-end'
-    | 'center'
-    | 'between'
-    | 'space-around'
-    | 'space-between'
-    | 'space-evenly';
+    | "flex-start"
+    | "flex-end"
+    | "center"
+    | "between"
+    | "space-around"
+    | "space-between"
+    | "space-evenly";
   readonly flex?: string | number | boolean;
 }
